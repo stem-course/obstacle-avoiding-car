@@ -1,35 +1,41 @@
 /*
-Code by: www.munphurid.com
+Code by:
 M.Hashir
 
 This is a code for Obstacle Avoiding car
 
 Hardware:
-Is bought from www.munphurid.com
 -Arduino UNO
 -Motor driver module L298N
--Munphurid Chassis MN CS01 (Light weight 3 wheeler chassis can also be used)
+-Light weight 3 wheeler chassis
 -HC-sr04 Ultrasonic Distance Sensor
 -7V to 12V battery
 -10 male to female wires
+-5 male to male wires
 
 Connections:
-Motor driver module and Arduino
--Connect IN1 to pin 8 of Arduino
--Connect IN2 to pin 13 of Arduino
--Connect IN3 to pin 9 of Arduino
--Connect IN4 to pin 6 of Arduino
--Connect ENA to pin 2 of Arduino
--Connect ENB to pin 7 of Arduino
--Connect 5V of module to 5V of Arduino
--Connect GND of module to GND of Arduino
+Connections:
+  Motor driver module and Arduino
+  -Connect IN1 of module to pin 4 of Arduino
+  -Connect IN2 of module to pin 5 of Arduino
+  -Connect IN3 of module to pin 6 of Arduino
+  -Connect IN4 of module to pin 7 of Arduino
+  -Connect ENA of module to pin 8 of Arduino
+  -Connect ENB of module to pin 9 of Arduino
+  -Connect 5V of module to 5V of Arduino
+  -Connect GND of module to GND of Arduino
 
+Motors
+  Connect motors to motor driver module.
+  Battery and all circuits
+  -Connect +ve wire of battery to 12V of motor driver module
+  -Connect -ve wire of battery to GND of motor driver module
 
 Distance sensor and Arduino
--Connect Trig of distance sensor to pin 11 of Arduino
--Connect Echo of distance sensor to pin 10 of Arduino
--Connect VCC of distance sensor to 5V of Arduino
--Connect GND of distance sensor to GND of Arduino
+   -Connect Trig of distance sensor to pin 10 of Arduino
+   -Connect Echo of distance sensor to pin 11 of Arduino
+   -Connect VCC of distance sensor to 5V of Arduino
+   -Connect GND of distance sensor to GND of Arduino
 
 Motors
 Connect motors to motor driver module
@@ -40,14 +46,14 @@ Battery and all circuits
 */
 
 
-#define IN1 8         //IN1
-#define IN2 13        //IN2
-#define ENA 2         //ENA
-#define ENB 7         //ENB
-#define IN3 9         //IN3
-#define IN4 6         //IN4
-#define trigger 11    //Trigger
-#define echo 10       //Echo
+#define IN1 4         //IN1
+#define IN2 5        //IN2
+#define ENA 8         //ENA
+#define ENB 9         //ENB
+#define IN3 6         //IN3
+#define IN4 7         //IN4
+#define trigger 10    //Trigger
+#define echo 11       //Echo
 
 
 void stopm(void);     
@@ -128,6 +134,6 @@ void inputs()                         //Below lines tell your car how to measure
       distance = (duration / 2) / 29.1;
       digitalWrite(trigger, LOW); 
       
-      Serial.print("forward Distance: ");
+      Serial.print("Forward Distance: ");
       Serial.println(distance);
 }
